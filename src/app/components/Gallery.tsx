@@ -12,7 +12,7 @@ export default async function Gallery() {
     return <h2 className="m-5 text-2xl font-bold">No Images Found</h2>;
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
       {images.photos.map((photo) => (
         <ImgContainer photo={photo} />
       ))}
