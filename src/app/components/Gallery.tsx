@@ -1,6 +1,7 @@
 import { readFileSync } from "fs";
 import fetchImages from "../lib/fetchImages";
 import type { ImagesResults } from "../models/Images";
+import ImgContainer from "./imgContainer";
 
 export default async function Gallery() {
   const url = "https://api.pexels.com/v1/curated";
@@ -11,10 +12,10 @@ export default async function Gallery() {
     return <h2 className="m-5 text-2xl font-bold">No Images Found</h2>;
 
   return (
-    <section className="px-2 my-3 gap-2 grid-cols-gallery">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
       {images.photos.map((photo) => (
-        <div key={photo.id} className="h-64 bg-gray-200 rounded-xl"></div>
+        <ImgContainer photo={photo} />
       ))}
-    </section>
+    </div>
   );
 }
