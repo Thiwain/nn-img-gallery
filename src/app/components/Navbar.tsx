@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Search from "./Search";
 
 export default function Navbar() {
   return (
@@ -7,6 +8,7 @@ export default function Navbar() {
         <h1 className="text-white text-xl items-center p-4 font-bold max-w-6xl">
           <Link href="/"> Next.js Image Gallery</Link>
         </h1>
+        <Search />
       </nav>
     </header>
   );
