@@ -2,6 +2,7 @@ import { readFileSync } from "fs";
 import fetchImages from "../lib/fetchImages";
 import type { ImagesResults } from "../models/Images";
 import ImgContainer from "./imgContainer";
+import addBlurredDataUrls from "../lib/getBase64";
 
 export default async function Gallery() {
   const url = "https://api.pexels.com/v1/curated";
@@ -11,11 +12,13 @@ export default async function Gallery() {
   if (!images)
     return <h2 className="m-5 text-2xl font-bold">No Images Found</h2>;
 
+  const photosWithBlur = await addBlurredDataUrls(images);
+
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-      {images.photos.map((photo) => (
-        <ImgContainer photo={photo} />
+    <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {photosWithBlur.map((photo) => (
+        <ImgContainer key={photo.id} photo={photo} />
       ))}
-    </div>
+    </section>
   );
 }
