@@ -21,7 +21,7 @@ export default async function Gallery({ topic }: Props) {
   const photosWithBlur = await addBlurredDataUrls(images);
 
   return (
-    <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <section className="px-1 my-3 grid grid-cols-gallery auto-rows-[10px]">
       {photosWithBlur.map((photo) => (
         <ImgContainer key={photo.id} photo={photo} />
       ))}
