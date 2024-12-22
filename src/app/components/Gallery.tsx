@@ -1,10 +1,9 @@
 import fetchImages from "@/lib/fetchImages"
 import type { ImagesResults } from "@/models/Images"
-// @ts-ignore
-import ImgContainer from './ImgContainer'
 import addBlurredDataUrls from "@/lib/getBase64"
 import getPrevNextPages from "@/lib/getPrevNextPages"
 import Footer from "./Footer"
+import ImgContainer from "@/app/components/imgContainer";
 
 type Props = {
     topic?: string | undefined,
